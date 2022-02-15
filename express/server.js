@@ -15,7 +15,9 @@ router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 app.get('/test1', function (req, res) {
-  res.send("hello from express app deploy in netlify")
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>I have had this second endpoint. It is easy!</h1>');
+  res.end();
 });
 
 app.use(bodyParser.json());
