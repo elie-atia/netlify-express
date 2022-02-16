@@ -18,7 +18,7 @@ router.get('/test1', (req, res) => {
   res.end();
 });
 
-router.post('/test1', (req, res) => res.json( req.body));
+router.post('/test1', (req, res) => res.json( JSON.stringify(req.body)));
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 
