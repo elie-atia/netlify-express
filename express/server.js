@@ -11,9 +11,8 @@ router.get('/', (req, res) => {
   res.write('<h1>Hello from Express.js This server was deploy by elie!</h1>');
   res.end();
 });
-router.get('/test1', (req, res) => {
-  res.write('I have had this second endpoint. It is easy!');
-  res.end();
+app.get('/test1', function (req, res) {
+  res.send("hello i have add this new endpoint. It is easy !")
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
