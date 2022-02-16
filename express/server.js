@@ -18,10 +18,9 @@ router.get('/test1', (req, res) => {
   res.end();
 });
 
-router.post('/test1', (req, res) => res.json({ postBody: JSON.stringify(req.body) }));
+router.post('/test1', (req, res) => res.json({ postBody: json(req.body) }));
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/test1', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
