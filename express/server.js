@@ -15,8 +15,8 @@ router.get('/', (req, res) => {
 
 router.post('/ordersHistory', (req, res) => {
   const body = req.body;
-   var pairs = body.split('&');
-  // let result = {};
+   //var pairs = body.split('&');
+  // var result = {};
   // pairs.forEach(function (pair) {
   //   pair = pair.split('=');
   //   result[pair[0]] = decodeURIComponent(pair[1] || '');
