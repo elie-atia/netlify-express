@@ -15,13 +15,16 @@ router.get('/', (req, res) => {
 
 
 router.post('/ordersHistory', (req, res) => {
-  const { signature, key, totalParams } = req.body;
+  const { signature } = req.body;
+  const { key } = json(req.body);
+  const { timestamp } = JSON.stringify(req.body);
+
 //   res.status(200).json({
 //     signature: signature,
 //     key: key,
 //     totalParams: totalParams,
 //  });
-  res.send(req.body);
+  res.send(`The body of the request is:${req.body}. Signature is: ${signature}. key attempt 2 is: ${key}. timestamp attempt 3 is: ${timestamp}`);
 });
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
