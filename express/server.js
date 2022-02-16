@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/ordersHistory', (req, res) => {
-  res.send(`The body of the request is:${body}`);
+  res.send(`The body of the request is:${req.body}`);
 });
 
 
