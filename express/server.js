@@ -31,7 +31,7 @@ router.post('/ordersHistory2', (req, res) => {
     pair = pair.split('=');
     result[pair[0]] = decodeURIComponent(pair[1] || '');
   });
-  res.send(result);
+  res.send('test2');
 });
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
