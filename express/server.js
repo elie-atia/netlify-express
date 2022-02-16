@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
   res.write('<h1>Hello from Express.js This server was deploy by elie!</h1>');
   res.end();
 });
-router.get('/test1', (req, res) => {
+router.post('/test1', (req, res) => {
   const { signature, key, symbol, timestamp } = req.body;
    res.send(JSON.stringify(req.body));
 
