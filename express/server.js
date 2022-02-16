@@ -15,12 +15,12 @@ router.get('/', (req, res) => {
 
 router.post('/ordersHistory', (req, res) => {
   const body = req.body;
-  let pairs = body.split('&');
-  let result = {};
-  pairs.forEach(function (pair) {
-    pair = pair.split('=');
-    //result[pair[0]] = decodeURIComponent(pair[1] || '');
-  });
+  // let pairs = body.split('&');
+  // let result = {};
+  // pairs.forEach(function (pair) {
+  //   pair = pair.split('=');
+  //   result[pair[0]] = decodeURIComponent(pair[1] || '');
+  // });
   res.send(`The request of the body is: ${body}`);
 });
 
