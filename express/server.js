@@ -14,17 +14,8 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/ordersHistory1', (req, res) => {
-  const { signature } = req.body;
-  res.send(`The signature of the request is:${signature}`);
-});
-router.post('/ordersHistory2', (req, res) => {
-  const { signature } = json(req.body);
-  res.send(`The signature of the request is:${signature}`);
-});
-router.post('/ordersHistory3', (req, res) => {
-  const { signature } = JSON.stringify(req.body);
-  res.send(`The signature of the request is:${signature}`);
+router.post('/ordersHistory', (req, res) => {
+  res.send(`The body of the request is:${body}`);
 });
 
 
