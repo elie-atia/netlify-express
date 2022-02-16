@@ -4,9 +4,19 @@ const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 const router = express.Router();
+const axios = require('axios');
+const cors = require('cors');
 
 app.use(bodyParser.json());
-
+// Automatically allow cross-origin requests
+app.use(cors({ origin: true }));
+app.use(
+    cors({
+      origin: '*',
+      //origin: ['http://localhost:3000', 'https://www.binance.com/api','https://react-binance-app.web.app'],
+    }),
+  );
+  
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.write('<h1>Hello from Express.js This server was deploy by elie!</h1>');
