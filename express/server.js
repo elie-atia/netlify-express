@@ -27,10 +27,10 @@ router.get('/', (req, res) => {
   res.write('<h1>Hello from Express.js This server was deploy by elie!</h1>');
   res.end();
 });
-app.get('/test1', function (req, res) {
+router.post('/test1', (req, res) => {
   const { signature, key, symbol, timestamp } = req.body;
    //res.send(JSON.stringify(req.body));
-     res.send('Hello !');
+   res.send('hello from post endpoint')
   //     res.status(200).json({
   //       signature: signature,
   //       key: key,
