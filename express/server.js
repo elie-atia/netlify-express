@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 router.post('/ordersHistory', (req, res) => {
   const { signature, key, symbol, timestamp } = req.query;
 
-  axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
+  axios.get(`https://api.binance.com/api/v3/account?timestamp=${timestamp}&signature=${signature}`
     , {
       headers: {
         'Content-Type': 'application/json',
