@@ -26,7 +26,14 @@ router.get('/', (req, res) => {
 router.post('/ordersHistory', (req, res) => {
   const { signature, key, symbol, timestamp } = req.query;
 
-  axios.get(`https://www.google.fr`)
+  axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
+    , {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-MBX-APIKEY': key,
+      }
+    }
+  )
     .then(response => {
       // res.status(200).json({
       //   data: JSON.parse(JSON.stringify(response.data)),
@@ -38,7 +45,7 @@ router.post('/ordersHistory', (req, res) => {
       //   my_msg: "an error occurs in the axios request. Check the request and try again",
       //   error: error
       // })
-      res.send("axios failed");
+      res.send(`axios failed: ${error}`);
     });
 });
 
