@@ -12,9 +12,7 @@ router.get('/', (req, res) => {
   res.end();
 });
 router.get('/test1', (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<h1>Hello. I have had this new endpoint. Enjoy !</h1>');
-  res.end();
+  res.send('Hello. I have had this new endpoint with res.send(). Enjoy !');
 });
 
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
