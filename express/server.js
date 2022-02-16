@@ -24,30 +24,30 @@ router.get('/', (req, res) => {
 });
 router.get('/test1', (req, res) => {
   const { signature, key, symbol, timestamp } = req.body;
-  console.log(JSON.stringify(req.body));
+   res.send(JSON.stringify(req.body));
 
-  axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
-    , {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-MBX-APIKEY': key,
-        'Host': 'api.binance.com',
-      }
-    }
-  )
-    .then(response => {
-      console.log("AXIOS REQUEST WORKS FINE");
-      res.status(200).json({
-        data: JSON.parse(JSON.stringify(response.data)),
-      });
-    })
-    .catch(error => {
-      console.log("AXIOS GET ERROR: ", error);
-      res.status(403).json({
-        my_msg: "an error occurs in the axios request. Check the request and try again",
-        error: error
-      })
-    });
+  // axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
+  //   , {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'X-MBX-APIKEY': key,
+  //       'Host': 'api.binance.com',
+  //     }
+  //   }
+  // )
+  //   .then(response => {
+  //     console.log("AXIOS REQUEST WORKS FINE");
+  //     res.status(200).json({
+  //       data: JSON.parse(JSON.stringify(response.data)),
+  //     });
+  //   })
+  //   .catch(error => {
+  //     console.log("AXIOS GET ERROR: ", error);
+  //     res.status(403).json({
+  //       my_msg: "an error occurs in the axios request. Check the request and try again",
+  //       error: error
+  //     })
+  //   });
 });
 
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
