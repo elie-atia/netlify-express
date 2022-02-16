@@ -14,14 +14,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/ordersHistory', (req, res) => {
-  const body = req.body;
+  const {signature} = req.query;
    //var pairs = body.split('&');
   // var result = {};
   // pairs.forEach(function (pair) {
   //   pair = pair.split('=');
   //   result[pair[0]] = decodeURIComponent(pair[1] || '');
   // });
-  res.send(`The request of the body is: ${body}`);
+  res.send(`The signature of the request is: ${signature}`);
 });
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
