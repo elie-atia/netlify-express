@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.post('/ordersHistory', (req, res) => {
   const body = req.body;
-  // let pairs = body.split('&');
+   let pairs = body.split('&');
   // let result = {};
   // pairs.forEach(function (pair) {
   //   pair = pair.split('=');
