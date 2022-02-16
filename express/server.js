@@ -13,25 +13,15 @@ router.get('/', (req, res) => {
   res.end();
 });
 
-router.post('/ordersHistory1', (req, res) => {
-  let pairs = (req.body).split('&');
+router.post('/ordersHistory', (req, res) => {
+  const body = req.body;
+  let pairs = body.split('&');
   let result = {};
   pairs.forEach(function (pair) {
     pair = pair.split('=');
-    result[pair[0]] = decodeURIComponent(pair[1] || '');
+    //result[pair[0]] = decodeURIComponent(pair[1] || '');
   });
-  res.json(result);
-  //res.send(`The body of the request is:`);
-});
-
-router.post('/ordersHistory2', (req, res) => {
-  let pairs = (req.body).split('&');
-  let result = {};
-  pairs.forEach(function (pair) {
-    pair = pair.split('=');
-    result[pair[0]] = decodeURIComponent(pair[1] || '');
-  });
-  res.send('test2');
+  res.send(`The request of the body is: ${body}`);
 });
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
