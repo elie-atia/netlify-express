@@ -6,6 +6,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
+const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
 
 const router = express.Router();
 
@@ -16,6 +18,9 @@ app.use(
     //origin: ['http://localhost:3000', 'https://www.binance.com/api','https://react-binance-app.web.app'],
   }),
 );
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -25,6 +30,14 @@ router.get('/', (req, res) => {
 router.post('/test1', (req, res) => {
   const { signature, key, symbol, timestamp } = req.body;
    res.send(JSON.stringify(req.body));
+  //     res.status(200).json({
+  //       signature: signature,
+  //       key: key,
+  //       timestamp: timestamp,
+  //       symbol: symbol,
+
+  //     });
+
 
   // axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
   //   , {
