@@ -44,7 +44,7 @@ router.post('/ordersHistory', (req, res) => {
       //   my_msg: "an error occurs in the axios request. Check the request and try again",
       //   error: error
       // })
-      res.send(`axios failed: the parameters are: signature: ${signature} key: ${key} symbol: ${symbol} timestamp: ${timestamp}`);
+      res.send(`axios failed: ${error}. The parameters are: signature: ${signature} key: ${key} symbol: ${symbol} timestamp: ${timestamp}`);
     });
 });
 
