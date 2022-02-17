@@ -26,19 +26,29 @@ router.get('/', (req, res) => {
 router.post('/ordersHistory', (req, res) => {
   const { signature, key, symbol, timestamp } = req.query;
 
-  axios.get(`https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m`)
-    .then(response => {
-      res.status(200).json({
-        data: JSON.parse(JSON.stringify(response.data)),
-      });
-      //res.send("axios succes");
-    })
+  axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
+    , {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-MBX-APIKEY': key,
+        'Host': 'api.binance.com',
+        'Postman-Token': '8e60ba72-6e81-4833-9abc-35ff9e39ee2f',
+        'Cache-Control': 'no-cache',
+        'User-Agent': 'PostmanRuntime/7.29.0'
+      }
+    }
+  ).then(response => {
+    res.status(200).json({
+      data: JSON.parse(JSON.stringify(response.data)),
+    });
+    //res.send("axios succes");
+  })
     .catch(error => {
       // res.status(403).json({
       //   my_msg: "an error occurs in the axios request. Check the request and try again",
       //   error: error
       // })
-      res.send(`axios failed: ${error}`);
+      res.send(`axios failed: the parameters are: signature: ${signature} key: ${key} symbol: ${symbol} timestamp: ${timestamp}`);
     });
 });
 
