@@ -31,10 +31,6 @@ router.post('/ordersHistory', (req, res) => {
       headers: {
         'Content-Type': 'application/json',
         'X-MBX-APIKEY': key,
-        'Host': 'api.binance.com',
-        'Postman-Token': '8e60ba72-6e81-4833-9abc-35ff9e39ee2f',
-        'Cache-Control': 'no-cache',
-        'User-Agent': 'PostmanRuntime/7.29.0'
       }
     }
   ).then(response => {
