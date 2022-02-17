@@ -28,10 +28,10 @@ router.post('/ordersHistory', (req, res) => {
 
   axios.get(`https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m`)
     .then(response => {
-      // res.status(200).json({
-      //   data: JSON.parse(JSON.stringify(response.data)),
-      // });
-      res.send("axios succes");
+      res.status(200).json({
+        data: JSON.parse(JSON.stringify(response.data)),
+      });
+      //res.send("axios succes");
     })
     .catch(error => {
       // res.status(403).json({
