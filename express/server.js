@@ -26,14 +26,7 @@ router.get('/', (req, res) => {
 router.post('/ordersHistory', (req, res) => {
   const { signature, key, symbol, timestamp } = req.query;
 
-  axios.get(`https://api.binance.com/api/v3/allOrders?symbol=${symbol}&timestamp=${timestamp}&signature=${signature}`
-    , {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-MBX-APIKEY': key,
-      }
-    }
-  )
+  axios.get(`https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m`)
     .then(response => {
       // res.status(200).json({
       //   data: JSON.parse(JSON.stringify(response.data)),
